@@ -25,8 +25,9 @@ def safe_progressing(report, condition):
 
 
 def is_safe(report):
-    return safe_progressing(report, safe_increase_condition) or safe_progressing(
-        report, safe_decrease_condition
+    return (
+        safe_progressing(report, safe_increase_condition)
+        or safe_progressing(report, safe_decrease_condition)
     )
 
 
