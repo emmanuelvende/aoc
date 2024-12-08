@@ -9,9 +9,7 @@ def is_valid(result, numbers):
     a = numbers[0]
     b = numbers[1]
     remains = numbers[2:]
-    if is_valid(result, [a + b] + remains) or is_valid(result, [a * b] + remains):
-        return True
-    return False
+    return is_valid(result, [a + b] + remains) or is_valid(result, [a * b] + remains)
 
 
 answer = 0
