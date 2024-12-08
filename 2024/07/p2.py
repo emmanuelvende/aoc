@@ -9,13 +9,11 @@ def is_valid(result, numbers):
     a = numbers[0]
     b = numbers[1]
     remains = numbers[2:]
-    if (
+    return (
         is_valid(result, [a + b] + remains)
         or is_valid(result, [a * b] + remains)
         or is_valid(result, [int(f"{a}" + f"{b}")] + remains)
-    ):
-        return True
-    return False
+    )
 
 
 answer = 0
