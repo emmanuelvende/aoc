@@ -16,8 +16,7 @@ def al3v(s):
     m = re.findall(r"[aeiou]", s)
     if m:
         return len(m) >= 3
-    else:
-        return False
+    return False
 
 
 def aloltiar(s):
