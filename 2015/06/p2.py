@@ -10,11 +10,11 @@ def pr(x):
 LEDS = [[0 for c in range(1000)] for l in range(1000)]
 
 
-def f(start_pos, end_pos, val=None):
-    c_s, l_s = start_pos
-    c_e, l_e = end_pos
-    for l in range(l_s, l_e + 1):
-        for c in range(c_s, c_e + 1):
+def manage_leds(start_pos, end_pos, val=None):
+    c_start, l_start = start_pos
+    c_end, l_end = end_pos
+    for l in range(l_start, l_end + 1):
+        for c in range(c_start, c_end + 1):
             v = LEDS[l][c]
             w = v + val
             LEDS[l][c] = 0 if w < 0 else w
@@ -28,11 +28,11 @@ for cmd in CMDS:
     start_pos = tuple(int(x) for x in start_token.split(","))
     end_pos = tuple(int(x) for x in end_token.split(","))
     if cmd.startswith("toggle"):
-        f(start_pos, end_pos, val=2)
+        manage_leds(start_pos, end_pos, val=2)
     elif cmd.startswith("turn on"):
-        f(start_pos, end_pos, val=1)
+        manage_leds(start_pos, end_pos, val=1)
     elif cmd.startswith("turn off"):
-        f(start_pos, end_pos, val=-1)
+        manage_leds(start_pos, end_pos, val=-1)
 
 res = 0
 for l in range(1000):
