@@ -7,3 +7,7 @@ D -> Data
 L -> Lines
 
 R -> Results
+
+co -> column
+
+li -> line
