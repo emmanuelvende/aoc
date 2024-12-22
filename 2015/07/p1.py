@@ -18,6 +18,7 @@ def int_if_possible(x):
     except ValueError:
         return x
 
+
 # put in form D[signal] = [op, arg1, arg2]
 for instr in L:
     left, right = instr.split("->")
@@ -34,11 +35,11 @@ for instr in L:
     elif len(args) == 3 and args[1] == "RSHIFT":
         a = int_if_possible(args[0])
         assert type(a) == str
-        D[signal] = [f">> {int(args[2])}", a, None]
+        D[signal] = [f"RSHIFT {int(args[2])}", a, None]
     elif len(args) == 3 and args[1] == "LSHIFT":
         a = int_if_possible(args[0])
         assert type(a) == str
-        D[signal] = [f"<< {int(args[2])}", a, None]
+        D[signal] = [f"LSHIFT {int(args[2])}", a, None]
     elif (len(args) == 3 and args[1] == "AND") or (len(args) == 3 and args[1] == "OR"):
         a = int_if_possible(args[0])
         b = int_if_possible(args[2])
@@ -51,8 +52,9 @@ for instr in L:
 def bitwise_not(x):
     assert type(x) == int
     s_in = f"{x:016b}"
-    s_out = "".join(['1' if x == '0' else '0' for x in s_in])
+    s_out = "".join(["1" if x == "0" else "0" for x in s_in])
     return int(f"0b{s_out}", 2)
+
 
 R = {}
 
@@ -64,17 +66,17 @@ def compute(signal):
     if (op, arg1, arg2) in R:
         return R[(op, arg1, arg2)]
     if op == "" and type(arg1) == int:
-        assert(arg2 == None)
+        assert arg2 == None
         result = arg1
     elif op == "" and type(arg1) == str:
         assert arg2 == None
         result = compute(arg1)
     elif op == "NOT":
         result = bitwise_not(compute(arg1))
-    elif op.startswith("<<"):
+    elif op.startswith("LSHIFT"):
         val = int(op.split()[1])
         result = compute(arg1) << val
-    elif op.startswith(">>"):
+    elif op.startswith("RSHIFT"):
         val = int(op.split()[1])
         result = compute(arg1) >> val
     elif op == "OR":
@@ -87,5 +89,5 @@ def compute(signal):
     return result
 
 
-r = compute('a')
+r = compute("a")
 pr(r)
