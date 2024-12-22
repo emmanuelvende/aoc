@@ -1,6 +1,6 @@
-#AOC solutions
+# AOC solutions
 
-##General conventions
+## General conventions
 
 D -> Data
 L -> Lines
