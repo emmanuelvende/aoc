@@ -2,12 +2,18 @@
 
 ## General conventions
 
-D -> Data
+### Variables in capitalized letters
+Things that should not change, usually intermediate data structures to store input conveniently.
 
-L -> Lines
+  - `D` : Data
+  - `L` : Lines
+  - `R` : Results
+  - `G` : Graph
 
-R -> Results
+### Variables in lower case
 
-co -> column
-
-li -> line
+  - `i`, `j`, `k` : counters
+  - `r` : result
+  - `u`, `v`, `w` : vectors
+  - `co` : column
+  - `li` : line
