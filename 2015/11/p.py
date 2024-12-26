@@ -1,6 +1,7 @@
 import pyperclip
 import sys
 import itertools
+import copy
 
 
 def pr(x):
@@ -25,18 +26,9 @@ def rule3(s):
     condition = False
     for p in pairs:
         if p in s:
-            qairs = list(
-                itertools.filterfalse(
-                    lambda x: x == "ii" or x == "oo" or x == "ll", pairs
-                )
-            )
+            qairs = copy.deepcopy(pairs)
             qairs.remove(p)
-            for q in qairs:
-                if q in s:
-                    condition = True
-                    break
-            if condition:
-                break
+            condition = any((q in s for q in qairs))
     return condition
 
 
@@ -52,10 +44,11 @@ def compute_next(s):
         return D[s]
     c = s[-1]
     if c != "z":
-        if c in "iol":
-            r = s[:-1] + chr(ord(c) + 2)
-        else:
-            r = s[:-1] + chr(ord(c) + 1)
+        d = chr(ord(c) + 1)
+        if d in "iol":
+            d = chr(ord(c) + 2)
+        r = s[:-1] + d
+
     else:
         r = compute_next(s[:-1]) + "a"
     D[s] = r
