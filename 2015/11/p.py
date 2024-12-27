@@ -55,9 +55,8 @@ def compute_next(s):
     return r
 
 
-while True:
+s = compute_next(s)
+while not is_valid(s):
     s = compute_next(s)
-    if is_valid(s):
-        break
 
 pr(s)
