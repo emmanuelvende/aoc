@@ -2,13 +2,13 @@ import sys
 
 
 def dijkstra(G, start):
-    U = list(G.keys())  # unvisited nodes
+    # U = list(G.keys())  # unvisited nodes
 
-    # U = set()  # unvisited nodes
-    # for k in G.keys():
-    #     U.add(k)
-    #     for p in G[k].keys():
-    #         U.add(p)
+    U = set()  # unvisited nodes
+    for k in G.keys():
+        U.add(k)
+        for p in G[k].keys():
+            U.add(p)
 
     shortest_path = {}
     previous_nodes = {}
@@ -27,7 +27,7 @@ def dijkstra(G, start):
                 current_min_node = node
 
         for neighbor, dist in G[current_min_node].items():
-            print(neighbor, dist)
+            # print(neighbor, dist)
             dist_tmp = shortest_path[current_min_node] + dist
             if dist_tmp < shortest_path[neighbor]:
                 shortest_path[neighbor] = dist_tmp
@@ -40,10 +40,10 @@ def dijkstra(G, start):
 
 if __name__ == "__main__":
     G = {
-        "a": {"b": 85, "c": 10, "d": 19},
+        "a": {"b": 85, "c": 10, "d": 19, "e": 32},
         "b": {"c": 78, "d": 88, "e": 28},
-        "c": {"a": 28, "e": 39},
-        "d": {"b": 10, "e": 11},
-        
+        "c": {"d": 28, "e": 39},
+        "d": {"e": 11},
+        "e": {}
     }
     print(dijkstra(G, "a"))
