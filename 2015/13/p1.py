@@ -23,7 +23,7 @@ for s in L:
 
 possibles = itertools.permutations(D.keys())
 
-E = {}
+SCORES = {}
 for scenario in possibles:
     current_score = 0
     for i, person in enumerate(scenario[:-1]):
@@ -33,7 +33,7 @@ for scenario in possibles:
     a = scenario[-1]
     b = scenario[0]
     current_score += D[a][b] + D[b][a]
-    E[scenario] = current_score
+    SCORES[scenario] = current_score
 
-r = max(E.values())
+r = max(SCORES.values())
 pr(r)
