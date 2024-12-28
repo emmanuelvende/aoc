@@ -1,7 +1,5 @@
 import sys
 import pyperclip
-import itertools
-import copy
 
 
 def pr(x):
