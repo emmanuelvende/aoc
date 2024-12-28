@@ -18,11 +18,13 @@ Things that should not change, usually intermediate data structures to store inp
 ### Variables in lower case
 
   - `i`, `j`, `k` : counters
+  - `j` can also mean `json` object
   - `r` : result
   - `u`, `v`, `w` : vectors
+  - `x`, `y`, `z` : variables
   - `co` : column
   - `li` : line
 
 ### Other
 
-Other variables have meaningful (or not so?) names.
+Other variables should have meaningful (or not so?) names.
