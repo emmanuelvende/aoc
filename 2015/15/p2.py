@@ -54,10 +54,10 @@ for i in range(N + 1):
         if i + j > N:
             break
         for k in range(N + 1):
-            if i + j + k > 100:
+            if i + j + k > N:
                 break
             for l in range(N + 1):
-                if i + j + k + l > 100:
+                if i + j + k + l > N:
                     break
                 if i + j + k + l == N:
                     P.append((i, j, k, l))
