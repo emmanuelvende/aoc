@@ -28,3 +28,11 @@ Things that should not change, usually intermediate data structures to store inp
 ### Other
 
 Other variables should have meaningful (or not so?) names.
+
+## Typical algorithms
+
+## Recursion
+
+#### Partitionnement d'un entier
+
+2015-17
