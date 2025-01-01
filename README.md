@@ -31,8 +31,8 @@ Other variables should have meaningful (or not so?) names.
 
 ## Typical algorithms
 
-## Recursion
+### Recursion
 
-#### Partitionnement d'un entier
+  - 2015-07 (sort of graph)
+  - 2015-17 (integer partition)
 
-2015-17
