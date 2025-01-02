@@ -11,7 +11,6 @@ D = open(sys.argv[1], "r").read().split(",")
 
 D = list(map(lambda x: x.strip(), D))
 
-# print(D)
 
 N, E, W, S = (-1, 0), (0, 1), (0, -1), (1, 0)
 
@@ -59,7 +58,7 @@ for instr in D:
     n = int(instr[1:])
     to_direction = compute_direction(to_direction, cmd)
     mov = mul(to_direction, n)
-    
+
     new_positions = travel_to_pos(pos, mov)
     already_visited = False
     for np in new_positions:
